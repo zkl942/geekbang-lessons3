@@ -87,6 +87,7 @@ public class FrontControllerServlet extends HttpServlet {
             }
         }
 
+        // 没写就是全部支持
         if (supportedHttpMethods.isEmpty()) {
             supportedHttpMethods.addAll(asList(HttpMethod.GET, HttpMethod.POST,
                     HttpMethod.PUT, HttpMethod.DELETE, HttpMethod.HEAD, HttpMethod.OPTIONS));

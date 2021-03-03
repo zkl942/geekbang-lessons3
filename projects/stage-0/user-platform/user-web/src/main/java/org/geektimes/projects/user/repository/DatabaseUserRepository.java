@@ -43,6 +43,16 @@ public class DatabaseUserRepository implements UserRepository {
 
     @Override
     public boolean save(User user) {
+        try {
+            Statement statement = getConnection().createStatement();
+
+            String INSERT_SINGLE_USER_DML_SQL = "INSERT INTO users(name,password,email,phoneNumber) VALUES " +
+                    "('" + user.getName() + "','" + user.getPassword() + "','" + user.getEmail() + "','" + user.getId() + "')";
+            statement.executeUpdate(INSERT_SINGLE_USER_DML_SQL);
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return false;
     }
 
