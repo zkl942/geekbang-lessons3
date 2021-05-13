@@ -161,7 +161,7 @@
     <!--        </resource-env-ref-type>-->
     <!--    </resource-env-ref>-->
 
-    <!-- Define a Security Constraint on this Application -->
+    <!-- Define a Security Constraint on this org.geektimes.projects.springboot.application.Application -->
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Hello,World</web-resource-name>
@@ -173,10 +173,10 @@
         </auth-constraint>
     </security-constraint>
 
-    <!-- Define the Login Configuration for this Application -->
+    <!-- Define the Login Configuration for this org.geektimes.projects.springboot.application.Application -->
     <login-config>
         <auth-method>BASIC</auth-method>
-        <realm-name>Tomcat Host Manager Application</realm-name>
+        <realm-name>Tomcat Host Manager org.geektimes.projects.springboot.application.Application</realm-name>
     </login-config>
 
     <!-- Security roles referenced by this web application -->

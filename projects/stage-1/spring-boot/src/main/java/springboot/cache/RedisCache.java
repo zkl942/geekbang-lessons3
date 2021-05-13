@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.geektimes.projects.user.cache;
+package springboot.cache;
 
 import org.springframework.cache.Cache;
 import redis.clients.jedis.Jedis;
@@ -59,7 +59,11 @@ public class RedisCache implements Cache {
     public ValueWrapper get(Object key) {
         byte[] keyBytes = serialize(key);
         byte[] valueBytes = jedis.get(keyBytes);
-        return () -> deserialize(valueBytes);
+        if (valueBytes == null) {
+            return null;
+        } else {
+            return () -> deserialize(valueBytes);
+        }
     }
 
     @Override
@@ -87,9 +91,9 @@ public class RedisCache implements Cache {
 
     @Override
     public void clear() {
-        // Redis 是否支持 namespace
-        // name:key
-        // String 类型的 key :
+        // Clear the cache through removing all mappings
+        // flush the database using the flushDB method
+        jedis.flushDB();
     }
 
     // 是否可以抽象出一套序列化和反序列化的 API

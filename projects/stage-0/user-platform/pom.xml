@@ -86,6 +86,7 @@
         <dependencies>
 
             <!-- Spring Boot Dependencies -->
+            <!-- https://www.baeldung.com/spring-boot-dependency-management-custom-parent -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
