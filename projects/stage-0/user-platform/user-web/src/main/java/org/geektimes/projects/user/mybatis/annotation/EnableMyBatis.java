@@ -63,4 +63,14 @@ public @interface EnableMyBatis {
 
     String environment() default "SqlSessionFactoryBean";
 
+    String databaseIdProvider();
+
+    String[] plugins() default {};
+
+    String typeAliasesPackage();
+
+    String sqlSessionFactory() default "SqlSessionFactoryBean";
+
+    String transactionFactory() default "SqlSessionFactoryBean";
+
 }

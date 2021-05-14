@@ -56,6 +56,12 @@ public class MyBatisBeanDefinitionRegistrar implements ImportBeanDefinitionRegis
         beanDefinitionBuilder.addPropertyValue("mapperLocations", attributes.get("mapperLocations"));
         beanDefinitionBuilder.addPropertyValue("environment", resolvePlaceholder(attributes.get("environment")));
         // 自行添加其他属性
+        beanDefinitionBuilder.addPropertyReference("databaseIdProvider", (String) attributes.get("databaseIdProvider"));
+        beanDefinitionBuilder.addPropertyReference("plugins", (String) attributes.get("plugins"));
+        beanDefinitionBuilder.addPropertyValue("typeAliasesPackage", attributes.get("typeAliasesPackage"));
+        beanDefinitionBuilder.addPropertyReference("sqlSessionFactory", (String) attributes.get("sqlSessionFactory"));
+        beanDefinitionBuilder.addPropertyReference("transactionFactory", (String) attributes.get("transactionFactory"));
+
 
         // SqlSessionFactoryBean 的 BeanDefinition
         BeanDefinition beanDefinition = beanDefinitionBuilder.getBeanDefinition();
